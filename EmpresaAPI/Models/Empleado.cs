@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EmpresaAPI.Models
 {
@@ -12,6 +13,8 @@ namespace EmpresaAPI.Models
         [MaxLength(13)]
         public string CUI { get; set; }
         public DateTime Fecha_Ingreso { get; set; }
+
+        [Column(TypeName = "decimal(10,2)")]
         public decimal Salario_Actual { get; set; }
         public DateTime? Fecha_Ultimo_Aumento { get; set; }
         public DateTime? Fecha_baja {  get; set; }
@@ -23,6 +26,8 @@ namespace EmpresaAPI.Models
         public int Departamento_Id { get; set; }
 
         public Departamento Departamento { get; set; }
+
+        public ICollection<HistorialSalarial> HistorialesSalariales { get; set; } = new List<HistorialSalarial>();
 
     }
 }
