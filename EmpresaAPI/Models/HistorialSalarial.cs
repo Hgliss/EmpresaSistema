@@ -5,7 +5,7 @@ namespace EmpresaAPI.Models
 {
     public class HistorialSalarial : AuditoriaBase
     {
-        public int Id_Historial { get; set; }
+        public int Id { get; set; }
         [Column(TypeName = "decimal(10,2)")]
         public decimal Salario_Anterior { get; set; }
 

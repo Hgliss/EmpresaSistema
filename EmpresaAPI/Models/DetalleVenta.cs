@@ -4,7 +4,7 @@ namespace EmpresaAPI.Models
 {
     public class DetalleVenta : AuditoriaBase
     {
-        public int Id_Detalle { get; set; }
+        public int Id { get; set; }
         public int Cantidad { get; set; }
         [Column(TypeName ="decimal(10,2)")]
         public decimal Precio { get; set; }

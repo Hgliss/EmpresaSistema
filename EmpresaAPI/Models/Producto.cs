@@ -5,7 +5,7 @@ namespace EmpresaAPI.Models
 {
     public class Producto : AuditoriaBase
     {
-        public int SKU { get; set; }
+        public int Id { get; set; }
         [MaxLength(255)]
         public string Descripcion {  get; set; }
         public int Existencia { get; set; }

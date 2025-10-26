@@ -4,7 +4,7 @@ namespace EmpresaAPI.Models
 {
     public class Venta : AuditoriaBase
     {
-        public int Id_Venta { get; set; }
+        public int Id { get; set; }
         public DateTime Fecha_Venta { get; set; }
         [Column(TypeName ="decimal(10,2)")]
         public int Total { get; set; }

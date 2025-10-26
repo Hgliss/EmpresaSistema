@@ -2,7 +2,7 @@
 {
     public class Usuario : AuditoriaBase
     {
-        public int Id_Usuario { get; set; }
+        public int Id { get; set; }
         public string Nombre_Usuario { get; set; }
         public string Contrasena { get; set; } = null!;
         public bool Estado { get; set; } = true;

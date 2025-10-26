@@ -5,7 +5,7 @@ namespace EmpresaAPI.Models
 {
     public class Empleado : AuditoriaBase
     {
-        public int Id_Empleado { get; set; }
+        public int Id { get; set; }
         public string Nombres { get; set; }
         public string Apellidos { get; set; }
 
