@@ -12,7 +12,6 @@ namespace EmpresaAPI.Data
         }
 
     //tablas
-        public DbSet<AuditoriaBase> AuditoriaBases { get; set; }
         public DbSet<Cliente> Clientes { get; set; }
         public DbSet<Departamento> Departamentos { get; set; }
         public DbSet<DetalleVenta> DetalleVentas { get; set; }
