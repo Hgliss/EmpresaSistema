@@ -7,12 +7,21 @@ namespace EmpresaAPI.Data
     public class EmpresaContext : DbContext
     {
         public EmpresaContext(DbContextOptions<EmpresaContext> options)
-            : base(options) { }
-        {
+            : base(options) 
+        {    
         }
 
     //tablas
-
+        public DbSet<AuditoriaBase> AuditoriaBases { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Departamento> Departamentos { get; set; }
+        public DbSet<DetalleVenta> DetalleVentas { get; set; }
+        public DbSet<Empleado> Empleados { get; set; }
+        public DbSet<HistorialSalarial> HistorialSalarials { get; set; }
+        public DbSet<Producto> Productos { get; set; }
+        public DbSet<Rol> Rols { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Venta> Ventas { get; set; }
 
 
     //Configuraciones Personalizadas
@@ -41,8 +50,6 @@ namespace EmpresaAPI.Data
                 }
             }
         }
-
-
 
     }
 }
