@@ -2,7 +2,7 @@
 
 namespace EmpresaAPI.Models
 {
-    [NotMapped]
+    
     public abstract class AuditoriaBase
     {
         public DateTime Fecha_Creacion { get; set; } = DateTime.Now;
