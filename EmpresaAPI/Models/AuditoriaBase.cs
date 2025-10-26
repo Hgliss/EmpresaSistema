@@ -11,8 +11,8 @@ namespace EmpresaAPI.Models
         public int? Usuario_Creacion_Id { get; set; }
         public int? Usuario_Modificacion_Id { get; set; }
 
-        public Usuario Usuario_Creacion { get; set; } = null!;
-        public Usuario Usuario_Modificacion { get; set; }
+        public Usuario? Usuario_Creacion { get; set; } = null!;
+        public Usuario? Usuario_Modificacion { get; set; }
 
     }
 }
