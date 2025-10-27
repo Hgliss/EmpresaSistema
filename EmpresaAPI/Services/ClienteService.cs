@@ -21,10 +21,14 @@ namespace EmpresaAPI.Services
                 Id = c.Id,
                 Nit = c.Nit,
                 Nombre = c.Nombre,
+                Fecha_Creacion = c.Fecha_Creacion,
+                Fecha_Modificacion = c.Fecha_Modificacion,
+                Usuario_Creacion_Id = c.Usuario_Creacion_Id,
+                Usuario_Modificacion_Id = c.Usuario_Modificacion_Id
             });
         }
 
-        public async Task CreacteAsync(ClienteInputDto dto)
+        public async Task CreateAsync(ClienteInputDto dto)
         {
             var cliente = new Cliente
             {

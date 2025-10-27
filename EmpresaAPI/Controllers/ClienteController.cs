@@ -27,7 +27,7 @@ namespace EmpresaAPI.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(ClienteInputDto dto)
         {
-            await _service.CreacteAsync(dto);
+            await _service.CreateAsync(dto);
             return Ok(new { message = "Cliente creado correctamente"});
         }
 
