@@ -40,7 +40,11 @@ namespace EmpresaAPI.Services
                 Id = cliente.Id,
                 Nit = cliente.Nit,
                 Nombre = cliente.Nombre,
-                Estado = cliente.Estado
+                Estado = cliente.Estado,
+                Fecha_Creacion = cliente.Fecha_Creacion,
+                Fecha_Modificacion = cliente.Fecha_Modificacion,
+                Usuario_Creacion_Id = cliente.Usuario_Creacion_Id,
+                Usuario_Modificacion_Id = cliente.Usuario_Modificacion_Id
             };
         }
 
