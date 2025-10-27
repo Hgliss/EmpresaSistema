@@ -32,12 +32,12 @@ Empresa Sistema
 
 ----RRHH----
 1.CRUD completos para Empleados, Departamento e HistorialSalarial.
-2.Entidades diseñadas con realciones medinate llaves foraneas
+2.Entidades diseñadas con relaciones mediante llaves foraneas
 3.Validaciones básicas
 
 ----COMERCIAL----
 1.CRUD completos para Producto, Cliente, DetalleVenta y Venta.
-2.Entidades diseñadas con realciones medinate llaves foraneas
+2.Entidades diseñadas con relaciones mediante llaves foraneas
 3.Validaciones básicas
 
 ----BASE DE DATOS----
@@ -47,10 +47,10 @@ Empresa Sistema
 
 ----AUTENTICACIÓN Y AUTORIZACION----
 1.No se implemento autenticacion ni manejo de roles
-2.Se realizo unicamente CRUD de usuarios y rol, ambien los controladores para intregralo posteriormente
+2.Se realizo unicamente CRUD de usuarios y rol, tambien los controladores para intregralo posteriormente
 
 ----FRONTEND----
-1.No se desarrollo interfaz web
+1.No se desarrollo interfaz web debido a limitaciones de tiempo
 
 ***Versionamiento***
 El proyecto se versionó en GitHub con commits descriptivos que reflejan las etapas del desarrollo, desde la configuración inicial hasta la implementación de los CRUD.
@@ -65,5 +65,6 @@ El proyecto se versionó en GitHub con commits descriptivos que reflejan las etap
 Se añadira una carpeta llamada Scripts y ahi podra encontrar los recursos utilizados para la base de datos y las consultas solicitadas
 
 
+Gracias por la oportunidad. Este proyecto fue un reto, pero también una buena forma de aprender y superarme.
 Atte.
 Lisbeth Yanira Hernandez Garcia
