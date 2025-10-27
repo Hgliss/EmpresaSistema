@@ -1,7 +1,7 @@
 ﻿using EmpresaAPI.Data;
 using EmpresaAPI.Models;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Identity.Client;
+
 
 
 namespace EmpresaAPI.Repositories
