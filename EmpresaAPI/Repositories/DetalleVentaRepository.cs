@@ -13,6 +13,13 @@ namespace EmpresaAPI.Repositories
             _context = context;
         }
 
+        public async Task<List<DetalleVenta>> GetByVentaIdAsync(int ventaId)
+        {
+            return await _context.DetalleVentas
+                                 .Where(d => d.Venta_Id == ventaId)
+                                 .ToListAsync();
+        }
+
         public async Task<IEnumerable<DetalleVenta>> GetAllAsync()
         {
             return await _context.DetalleVentas.ToListAsync();

@@ -36,6 +36,8 @@ builder.Services.AddScoped<RolRepository>();
 builder.Services.AddScoped<RolService>();
 builder.Services.AddScoped<UsuarioRepository>();
 builder.Services.AddScoped<UsuarioService>();
+builder.Services.AddScoped<VentaRepository>();
+builder.Services.AddScoped<VentaService>();
 
 var app = builder.Build();
 

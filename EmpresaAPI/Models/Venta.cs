@@ -7,7 +7,7 @@ namespace EmpresaAPI.Models
         public int Id { get; set; }
         public DateTime Fecha_Venta { get; set; }
         [Column(TypeName ="decimal(10,2)")]
-        public int Total { get; set; }
+        public decimal Total { get; set; }
 
         public int Cliente_Id { get; set; }
         public Cliente Cliente { get; set; } = null!;
