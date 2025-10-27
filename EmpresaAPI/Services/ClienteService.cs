@@ -21,6 +21,7 @@ namespace EmpresaAPI.Services
                 Id = c.Id,
                 Nit = c.Nit,
                 Nombre = c.Nombre,
+                Estado = c.Estado,
                 Fecha_Creacion = c.Fecha_Creacion,
                 Fecha_Modificacion = c.Fecha_Modificacion,
                 Usuario_Creacion_Id = c.Usuario_Creacion_Id,
@@ -34,6 +35,7 @@ namespace EmpresaAPI.Services
             {
                 Nit = dto.Nit,
                 Nombre = dto.Nombre,
+                Estado = dto.Estado,
                 Fecha_Creacion = DateTime.UtcNow,
                 Fecha_Modificacion = DateTime.UtcNow,
                 Usuario_Creacion_Id = null,
