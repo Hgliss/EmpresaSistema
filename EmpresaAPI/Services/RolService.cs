@@ -12,7 +12,7 @@ namespace EmpresaAPI.Services
         {
             _repo = repo;
         }
-
+        //Get All
         public async Task<IEnumerable<RolDto>> GetAllAsync()
         {
             var roles = await _repo.GetAllAsync();
@@ -28,6 +28,25 @@ namespace EmpresaAPI.Services
             });
         }
 
+        //Get by Id
+        public async Task<RolDto?> GetByIdAsync(int id)
+        {
+            var rol = await _repo.GetByIdAsync(id);
+            if (rol == null) return null;
+
+            return new RolDto
+            {
+                Id = rol.Id,
+                Nombre_Rol = rol.Nombre_Rol,
+                Estado = rol.Estado,
+                Fecha_Creacion = rol.Fecha_Creacion,
+                Fecha_Modificacion = rol.Fecha_Modificacion,
+                Usuario_Creacion_Id = rol.Usuario_Creacion_Id,
+                Usuario_Modificacion_Id = rol.Usuario_Modificacion_Id
+            };
+        }
+
+        //Create
         public async Task CreateAsync(RolInputDto dto)
         {
             var rol = new Rol
@@ -42,6 +61,23 @@ namespace EmpresaAPI.Services
             await _repo.AddAsync(rol);
         }
 
+        //Update
+        public async Task<bool> UpdateAsync(int id, RolInputDto dto)
+        {
+            var rol = await _repo.GetByIdAsync(id);
+            if (rol == null)
+                return false;
+
+            rol.Nombre_Rol = dto.Nombre_Rol;
+            rol.Estado = dto.Estado;
+            rol.Fecha_Modificacion = DateTime.UtcNow;
+            rol.Usuario_Modificacion = null;
+
+            await _repo.UpdateAsync(rol);
+            return true;
+        }
+
+        //Delete
         public async Task<bool> DeleteAsync(int id)
         {
             var rol = await _repo.GetByIdAsync(id);
