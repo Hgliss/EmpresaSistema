@@ -12,7 +12,7 @@ namespace EmpresaAPI.Services
         {
             _repo = repo;
         }
-
+        //Get All
         public async Task<IEnumerable<ClienteDto>> GetAllAsync()
         {
             var clientes = await _repo.GetAllAsync();
@@ -29,6 +29,22 @@ namespace EmpresaAPI.Services
             });
         }
 
+        //Get by Id
+        public async Task<ClienteDto?> GetByIdAsync(int id)
+        {
+            var cliente = await _repo.GetByIdAsync(id);
+            if (cliente == null) return null;
+
+            return new ClienteDto
+            {
+                Id = cliente.Id,
+                Nit = cliente.Nit,
+                Nombre = cliente.Nombre,
+                Estado = cliente.Estado
+            };
+        }
+
+        //Create
         public async Task CreateAsync(ClienteInputDto dto)
         {
             var cliente = new Cliente
@@ -44,6 +60,24 @@ namespace EmpresaAPI.Services
             await _repo.AddAsync(cliente);
         }
 
+        //Update
+        public async Task<bool> UpdateAsync(int id, ClienteInputDto dto)
+        {
+            var cliente = await _repo.GetByIdAsync(id);
+            if (cliente == null)
+                return false;
+
+            cliente.Nit = dto.Nit;
+            cliente.Nombre = dto.Nombre;
+            cliente.Estado = dto.Estado;
+            cliente.Fecha_Modificacion = DateTime.UtcNow;
+            cliente.Usuario_Modificacion = null;
+
+            await _repo.UpdateAsync(cliente);
+            return true;
+        }
+
+        //Delete
         public async Task<bool> DeleteAsync(int id)
         {
             var cliente = await _repo.GetByIdAsync(id);

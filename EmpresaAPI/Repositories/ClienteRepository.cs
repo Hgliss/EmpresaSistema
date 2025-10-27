@@ -15,6 +15,7 @@ namespace EmpresaAPI.Repositories
             _context = context;
         }
 
+        
         public async Task<IEnumerable<Cliente>> GetAllAsync()
         {
             return await _context.Clientes.ToListAsync();
