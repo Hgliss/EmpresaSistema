@@ -43,7 +43,7 @@ namespace EmpresaAPI.Services
             var empleado = await _repo.GetByIdAsync(id);
             if (empleado == null) return null;
 
-            return new ClienteDto
+            return new EmpleadoDto
             {
                 Id = empleado.Id,
                 Nombres = empleado.Nombres,
@@ -93,16 +93,16 @@ namespace EmpresaAPI.Services
             if (empleado == null)
                 return false;
 
-            empleado.Nombres = dto.Nombres,
-            empleado.Apellidos = dto.Apellidos,
-            empleado.CUI = dto.CUI,
-            empleado.Fecha_Ingreso = dto.Fecha_Ingreso,
-            empleado.Salario_Actual = dto.Salario_Actual,
-            empleado.Fecha_Ultimo_Aumento = dto.Fecha_Ultimo_Aumento,
-            empleado.Fecha_baja = dto.Fecha_baja,
-            empleado.Puesto = dto.Puesto,
-            empleado.Estado = dto.Estado,
-            empleado.Departamento_Id = dto.Departamento_Id,
+            empleado.Nombres = dto.Nombres;
+            empleado.Apellidos = dto.Apellidos;
+            empleado.CUI = dto.CUI;
+            empleado.Fecha_Ingreso = dto.Fecha_Ingreso;
+            empleado.Salario_Actual = dto.Salario_Actual;
+            empleado.Fecha_Ultimo_Aumento = dto.Fecha_Ultimo_Aumento;
+            empleado.Fecha_baja = dto.Fecha_baja;
+            empleado.Puesto = dto.Puesto;
+            empleado.Estado = dto.Estado;
+            empleado.Departamento_Id = dto.Departamento_Id;
             empleado.Fecha_Modificacion = DateTime.UtcNow;
             empleado.Usuario_Modificacion = null;
 

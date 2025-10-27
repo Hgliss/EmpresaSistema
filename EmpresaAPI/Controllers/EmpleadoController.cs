@@ -28,7 +28,7 @@ namespace EmpresaAPI.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             var empleado = await _service.GetByIdAsync(id);
-            if (emplados == null)
+            if (empleado == null)
                 return NotFound(new { message = "Empleado no encontrado" });
 
             return Ok(empleado);
