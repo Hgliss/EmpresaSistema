@@ -62,7 +62,7 @@ El proyecto se versionó en GitHub con commits descriptivos que reflejan las etap
 
 ---Scripts de Bd y Poblado---
 
-Se añadira una carpeta llamada Scripts y ahi podra encontrar los recuross utilizados para la base de datos
+Se añadira una carpeta llamada Scripts y ahi podra encontrar los recursos utilizados para la base de datos y las consultas solicitadas
 
 
 Atte.
