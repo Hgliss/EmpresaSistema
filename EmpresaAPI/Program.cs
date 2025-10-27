@@ -32,6 +32,8 @@ builder.Services.AddScoped<HistorialSalarialRepository>();
 builder.Services.AddScoped<HistorialSalarialService>();
 builder.Services.AddScoped<ProductoRepository>();
 builder.Services.AddScoped<ProductoService>();
+builder.Services.AddScoped<RolRepository>();
+builder.Services.AddScoped<RolService>();
 
 var app = builder.Build();
 
