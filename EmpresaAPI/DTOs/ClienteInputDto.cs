@@ -11,5 +11,8 @@ namespace EmpresaAPI.DTOs
 
         [Required(ErrorMessage = "El nombre es Obligatorio")]
         public string Nombre { get; set; }
+
+        [Required(ErrorMessage = "El estado es Obligatorio")]
+        public bool Estado { get; set; } = true;
     }
 }
