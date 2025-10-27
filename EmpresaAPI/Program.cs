@@ -1,22 +1,27 @@
-using DotNetEnv;
 using Microsoft.EntityFrameworkCore;
 using EmpresaAPI.Data;
-
-Env.Load();
+using EmpresaAPI.Repositories;
+using EmpresaAPI.Services;
+using EmpresaAPI.Helpers;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+string connectionString = ConnectionHelper.GetConnectionString();
 
 builder.Services.AddDbContext<EmpresaContext>(options  => options.UseSqlServer(connectionString));
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//Agregar Servicios
+builder.Services.AddScoped<ClienteRepository>();
+builder.Services.AddScoped<ClienteService>();
 
 var app = builder.Build();
 

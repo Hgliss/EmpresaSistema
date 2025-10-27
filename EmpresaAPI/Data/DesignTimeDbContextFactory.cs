@@ -1,8 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
-using Microsoft.Extensions.Configuration;
-using System.IO;
-using DotNetEnv;
+using EmpresaAPI.Helpers;
 
 namespace EmpresaAPI.Data
 {
@@ -11,24 +9,7 @@ namespace EmpresaAPI.Data
         public EmpresaContext CreateDbContext(string[] args)
         {
 
-            Env.Load();
-
-            //Cadena de conexion
-            string server = Environment.GetEnvironmentVariable("DB_SERVER");
-            string database = Environment.GetEnvironmentVariable("DB_NAME");
-            string user = Environment.GetEnvironmentVariable("DB_USER");
-            string password = Environment.GetEnvironmentVariable("DB_PASS");
-
-            string connectionString;
-
-            if (!string.IsNullOrEmpty(user))
-            {
-                connectionString = $"Server={server};Database={database};User Id={user};Password={password};TrustServerCertificate=True;";
-            }
-            else
-            {
-                connectionString = $"Server={server};Database={database};Trusted_Connection=True;TrustServerCertificate=True;";
-            }
+            string connectionString = ConnectionHelper.GetConnectionString();
 
             var optionsBuilder = new DbContextOptionsBuilder<EmpresaContext>();
             optionsBuilder.UseSqlServer(connectionString);
