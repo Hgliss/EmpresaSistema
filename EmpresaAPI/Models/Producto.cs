@@ -13,6 +13,7 @@ namespace EmpresaAPI.Models
         public decimal Precio { get; set; }
         [Column(TypeName = "decimal(10,2)")]
         public decimal Costo { get; set; }
+        public bool Estado { get; set; } = true;
 
         public ICollection<DetalleVenta> DetallesVentas { get; set; } = new List<DetalleVenta>();
 
