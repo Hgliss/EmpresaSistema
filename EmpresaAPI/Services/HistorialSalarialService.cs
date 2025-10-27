@@ -24,10 +24,10 @@ namespace EmpresaAPI.Services
                 Salario_nuevo = hs.Salario_nuevo,
                 Fecha_Cambio = hs.Fecha_Cambio,
                 Motivo = hs.Motivo,                
-                Fecha_Creacion = em.Fecha_Creacion,
-                Fecha_Modificacion = em.Fecha_Modificacion,
-                Usuario_Creacion_Id = em.Usuario_Creacion_Id,
-                Usuario_Modificacion_Id = em.Usuario_Modificacion_Id,
+                Fecha_Creacion = hs.Fecha_Creacion,
+                Fecha_Modificacion = hs.Fecha_Modificacion,
+                Usuario_Creacion_Id = hs.Usuario_Creacion_Id,
+                Usuario_Modificacion_Id = hs.Usuario_Modificacion_Id,
             });
         }
 

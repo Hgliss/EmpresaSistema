@@ -28,6 +28,10 @@ builder.Services.AddScoped<DetalleVentaRepository>();
 builder.Services.AddScoped<DetalleVentaService>();
 builder.Services.AddScoped<EmpleadoRepository>();
 builder.Services.AddScoped<EmpleadoService>();
+builder.Services.AddScoped<HistorialSalarialRepository>();
+builder.Services.AddScoped<HistorialSalarialService>();
+builder.Services.AddScoped<ProductoRepository>();
+builder.Services.AddScoped<ProductoService>();
 
 var app = builder.Build();
 
