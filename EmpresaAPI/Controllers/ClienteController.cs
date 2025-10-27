@@ -35,7 +35,7 @@ namespace EmpresaAPI.Controllers
         public async Task<IActionResult> Delete(int id)
         {
             var eliminado = await _service.DeleteAsync(id);
-            if (!eliminado) return NotFound(new { mesagge = "Cliente no encontrado" });
+            if (!eliminado) return NotFound(new { message = "Cliente no encontrado" });
             return Ok(new {message = "Cliente eliminado correctamente"});
 
         }
