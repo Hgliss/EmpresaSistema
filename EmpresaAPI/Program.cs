@@ -26,6 +26,8 @@ builder.Services.AddScoped<DepartamentoRepository>();
 builder.Services.AddScoped<DepartamentoService>();
 builder.Services.AddScoped<DetalleVentaRepository>();
 builder.Services.AddScoped<DetalleVentaService>();
+builder.Services.AddScoped<EmpleadoRepository>();
+builder.Services.AddScoped<EmpleadoService>();
 
 var app = builder.Build();
 
