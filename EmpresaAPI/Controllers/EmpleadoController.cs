@@ -23,6 +23,17 @@ namespace EmpresaAPI.Controllers
             return Ok(empleado);
         }
 
+        //GET: api/empleado/{id}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var empleado = await _service.GetByIdAsync(id);
+            if (emplados == null)
+                return NotFound(new { message = "Empleado no encontrado" });
+
+            return Ok(empleado);
+        }
+
         //POST: api/empleados
         [HttpPost]
         public async Task<IActionResult> Create(EmpleadoInputDto dto)
@@ -31,6 +42,21 @@ namespace EmpresaAPI.Controllers
             return Ok(new { message = "Empleado creado correctamente" });
         }
 
+        //Put: api/cliente/{id}
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] EmpleadoInputDto dto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var actualizado = await _service.UpdateAsync(id, dto);
+            if (!actualizado)
+                return NotFound(new { message = "Empleado no encontrado" });
+
+            return Ok(new { message = "Empleado actualizado correctamente" });
+        }
+
+        //Delete
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
