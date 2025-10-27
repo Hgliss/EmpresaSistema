@@ -20,6 +20,7 @@ namespace EmpresaAPI.Repositories
                                  .ToListAsync();
         }
 
+
         public async Task<IEnumerable<DetalleVenta>> GetAllAsync()
         {
             return await _context.DetalleVentas.ToListAsync();

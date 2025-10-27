@@ -23,6 +23,17 @@ namespace EmpresaAPI.Controllers
             return Ok(detalleventas);
         }
 
+        //GET: api/detalleventa/{id}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var detalleventa = await _service.GetByIdAsync(id);
+            if (detalleventa == null)
+                return NotFound(new { message = "Detalle no encontrado" });
+
+            return Ok(detalleventa);
+        }
+
         //POST: api/detalleventa
         [HttpPost]
         public async Task<IActionResult> Create(DetalleVentaInputDto dto)
@@ -31,6 +42,22 @@ namespace EmpresaAPI.Controllers
             return Ok(new { message = "Detalle Venta creado correctamente" });
         }
 
+        //Put: api/cliente/{id}
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] DetalleVentaInputDto dto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var actualizado = await _service.UpdateAsync(id, dto);
+            if (!actualizado)
+                return NotFound(new { message = "Detalle no encontrado" });
+
+            return Ok(new { message = "Detalle actualizado correctamente" });
+        }
+
+
+        //DELETE: api/cliente/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
