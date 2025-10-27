@@ -13,28 +13,33 @@ namespace EmpresaAPI.Repositories
             _context = context;
         }
 
+        //Get All
         public async Task<IEnumerable<HistorialSalarial>> GetAllAsync()
         {
             return await _context.HistorialSalarials.ToListAsync();
         }
 
+        //Add
         public async Task AddAsync(HistorialSalarial historialsalarial)
         {
             await _context.HistorialSalarials.AddAsync(historialsalarial);
             await _context.SaveChangesAsync();
         }
 
+        //Get by Id
         public async Task<HistorialSalarial?> GetByIdAsync(int id)
         {
             return await _context.HistorialSalarials.FindAsync(id);
         }
 
+        //Update
         public async Task UpdateAsync(HistorialSalarial historialsalarial)
         {
             _context.HistorialSalarials.Update(historialsalarial);
             await _context.SaveChangesAsync();
         }
 
+        //Delete
         public async Task DeleteAsync(int id)
         {
             var historialsalarial = await _context.HistorialSalarials.FindAsync(id);

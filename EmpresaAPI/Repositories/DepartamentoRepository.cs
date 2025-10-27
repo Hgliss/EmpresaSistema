@@ -12,29 +12,33 @@ namespace EmpresaAPI.Repositories
         {
             _context = context;
         }
-
+        //Get All
         public async Task<IEnumerable<Departamento>> GetAllAsync()
         {
             return await _context.Departamentos.ToListAsync();
         }
 
+        //Add
         public async Task AddAsync(Departamento departamento)
         {
             await _context.Departamentos.AddAsync(departamento);
             await _context.SaveChangesAsync();
         }
 
+        //Get by Id
         public async Task<Departamento?> GetByIdAsync(int id)
         {
             return await _context.Departamentos.FindAsync(id);
         }
 
+        //Udpate
         public async Task UpdateAsync(Departamento departamento)
         {
             _context.Departamentos.Update(departamento);
             await _context.SaveChangesAsync();
         }
 
+        //Delete
         public async Task DeleteAsync(int id)
         {
             var departamento = await _context.Departamentos.FindAsync(id);

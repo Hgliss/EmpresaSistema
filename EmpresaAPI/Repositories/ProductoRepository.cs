@@ -13,28 +13,34 @@ namespace EmpresaAPI.Repositories
             _context = context;
         }
 
+        //Get All
         public async Task<IEnumerable<Producto>> GetAllAsync()
         {
             return await _context.Productos.ToListAsync();
         }
 
+        //Add
         public async Task AddAsync(Producto producto)
         {
             await _context.Productos.AddAsync(producto);
             await _context.SaveChangesAsync();
         }
 
+
+        //Get By Id
         public async Task<Producto?> GetByIdAsync(int id)
         {
             return await _context.Productos.FindAsync(id);
         }
 
+        //Update
         public async Task UpdateAsync(Producto producto)
         {
             _context.Productos.Update(producto);
             await _context.SaveChangesAsync();
         }
 
+        //Delete
         public async Task DeleteAsync(int id)
         {
             var producto = await _context.Productos.FindAsync(id);
