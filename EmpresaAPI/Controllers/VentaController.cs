@@ -23,12 +23,37 @@ namespace EmpresaAPI.Controllers
             return Ok(venta);
         }
 
+        //GET: api/venta/{id}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var venta = await _service.GetByIdAsync(id);
+            if (venta == null)
+                return NotFound(new { message = "Venta no encontrada" });
+
+            return Ok(venta);
+        }
+
         //POST: api/venta
         [HttpPost]
         public async Task<IActionResult> Create(VentaInputDto dto)
         {
             await _service.CreateAsync(dto);
             return Ok(new { message = "Venta creada correctamente" });
+        }
+
+        //Put: api/venta/{id}
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] VentaInputDto dto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var actualizado = await _service.UpdateAsync(id, dto);
+            if (!actualizado)
+                return NotFound(new { message = "Venta no encontrads" });
+
+            return Ok(new { message = "Venta actualizada correctamente" });
         }
 
         //DELETE: api/venta/{id}

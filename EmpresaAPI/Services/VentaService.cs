@@ -15,6 +15,7 @@ namespace EmpresaAPI.Services
             _detalleRepo = detalleRepo;
         }
 
+        //Get All
         public async Task<IEnumerable<VentaDto>> GetAllAsync()
         {
             var ventas = await _repo.GetAllAsync();
@@ -31,6 +32,26 @@ namespace EmpresaAPI.Services
             });
         }
 
+        //Get by Id
+        public async Task<VentaDto?> GetByIdAsync(int id)
+        {
+            var venta = await _repo.GetByIdAsync(id);
+            if (venta == null) return null;
+
+            return new VentaDto
+            {
+                Id = venta.Id,
+                Cliente_Id = venta.Cliente_Id,
+                Fecha_Venta = venta.Fecha_Venta,
+                Total = venta.Total,
+                Fecha_Creacion = venta.Fecha_Creacion,
+                Fecha_Modificacion = venta.Fecha_Modificacion,
+                Usuario_Creacion_Id = venta.Usuario_Creacion_Id,
+                Usuario_Modificacion_Id = venta.Usuario_Modificacion_Id
+            };
+        }
+
+        //Create
         public async Task CreateAsync(VentaInputDto dto)
         {
             var venta = new Venta
@@ -51,6 +72,23 @@ namespace EmpresaAPI.Services
             await _repo.UpdateAsync(venta);
         }
 
+        //Update
+        public async Task<bool> UpdateAsync(int id, VentaInputDto dto)
+        {
+            var venta = await _repo.GetByIdAsync(id);
+            if (venta == null)
+                return false;
+
+            venta.Cliente_Id = dto.Cliente_Id;
+            venta.Fecha_Venta = dto.Fecha_Venta;
+            venta.Fecha_Modificacion = DateTime.UtcNow;
+            venta.Usuario_Modificacion = null;
+
+            await _repo.UpdateAsync(venta);
+            return true;
+        }
+
+        //Update Total
         public async Task UpdateTotalAsync(int venta_id)
         {
             var detalles = await _detalleRepo.GetByVentaIdAsync(venta_id);
@@ -66,6 +104,7 @@ namespace EmpresaAPI.Services
         }
 
 
+        //delete
         public async Task<bool> DeleteAsync(int id)
         {
             var venta = await _repo.GetByIdAsync(id);
