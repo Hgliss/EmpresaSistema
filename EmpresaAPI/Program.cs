@@ -22,6 +22,10 @@ builder.Services.AddSwaggerGen();
 //Agregar Servicios
 builder.Services.AddScoped<ClienteRepository>();
 builder.Services.AddScoped<ClienteService>();
+builder.Services.AddScoped<DepartamentoRepository>();
+builder.Services.AddScoped<DepartamentoService>();
+builder.Services.AddScoped<DetalleVentaRepository>();
+builder.Services.AddScoped<DetalleVentaService>();
 
 var app = builder.Build();
 
