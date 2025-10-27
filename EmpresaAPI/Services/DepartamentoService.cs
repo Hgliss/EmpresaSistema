@@ -23,6 +23,10 @@ namespace EmpresaAPI.Services
                 Nombre = d.Nombre,
                 Presupuesto = d.Presupuesto,
                 Estado = d.Estado,
+                Fecha_Creacion = d.Fecha_Creacion,
+                Fecha_Modificacion = d.Fecha_Modificacion,
+                Usuario_Creacion_Id = d.Usuario_Creacion_Id,
+                Usuario_Modificacion_Id = d.Usuario_Modificacion_Id
             });
         }
 
