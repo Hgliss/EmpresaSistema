@@ -1,0 +1,43 @@
+1. SELECT Apellidos FROM dbo.Empleados; 
+2.SELECT DISTINCT Apellidos FROM dbo.Empleados; 
+3.SELECT Apellidos = 'Perez' FROM dbo.Empleados; 
+4.SELECT * FROM dbo.Empleados WHERE Apellidos = 'Perez' OR Apellidos = 'Lopez';
+5.SELECT * FROM dbo.Empleados WHERE Departamento_Id = 7;
+6.SELECT * FROM dbo.Empleados WHERE Departamento_Id = 7 OR Departamento_Id = 2;
+7.SELECT * FROM dbo.Empleados WHERE SUBSTRING(Apellidos, 1,1) = 'P';
+8.SELECT SUM(Presupuesto) AS sumpresupuesto FROM dbo.Departamentos;
+9.SELECT Departamento_Id, COUNT(*) AS numempledos FROM dbo.Empleados GROUP BY Departamento_Id;
+10.SELECT e.Id, e.Nombres, e.Apellidos FROM dbo.Empleados As e INNER JOIN dbo.Departamentos as d ON e.Departamento_Id = d.Id;
+11.SELECT e.Nombres, e.Apellidos, d.Nombre AS Departamento, d.Presupuesto FROM dbo.Empleados AS e INNER JOIN dbo.Departamentos AS d ON e.DepartamentoId = d.Id
+ORDER BY e.Apellidos DESC;
+12.SELECT e.Nombres, e.Apellidos, d.Nombre AS Departamento, d.Presupuesto
+FROM dbo.Empleados AS e
+INNER JOIN dbo.Departamentos AS d
+ON e.DepartamentoId = d.Id
+WHERE d.Presupuesto > 60000;
+13.SELECT *
+FROM dbo.Departamentos
+WHERE Presupuesto > (
+SELECT AVG(Presupuesto) FROM dbo.Departamentos);
+14.SELECT d.Nombre AS Departamento, COUNT(e.Id) AS Numero_Empleados
+FROM dbo.Departamentos AS d
+INNER JOIN dbo.Empleados AS e
+ON e.DepartamentoId = d.Id
+GROUP BY d.Nombre
+HAVING COUNT(e.Id) > 2;
+15.INSERT INTO dbo.Departamentos (Nombre, Presupuesto, Estado, Fecha_Creacion, Fecha_Modificacion, Usuario_Creacion_Id, Usuario_Modificacion_Id)
+VALUES ('Control de Calidad', 40000,1, Getdate(),Getdate(),1,1 );
+
+INSERT INTO dbo.Empleados (Nombres, Apellidos, CUI, Fecha_Ingreso, Salario_Actual, Fecha_Ultimo_Aumento, Puesto, Jerarquia, Estado, Departamento_Id, DepartamentoId, Fecha_Creacion, Fecha_Modificacion, Usuario_Creacion_Id, Usuario_Modificacion_Id)
+VALUES ('Ester','Vasquez','2894823800000',GetDate(),4000,GetDate(),'Calidad','Jefe',1,18,18,getdate(),getdate(),1,1);
+
+16.Las consultas se pueden optimizar por ejemplo solo seleccionando las columnas necesarias, evitar usar el Select *  de forma excesiva utilizar indices, funciones como WHERE, JOIN, ORDER BY tambien son de ayuda para disminuir que una consulta sea pesada.
+17.La transaccion agrupa operacaciones para que sean todas o ninguna, un bloque es un medidad temporal que protege los datos mientras una transaccion esta en curso
+18.SELECT *
+FROM Empleados e1
+WHERE 3 > (
+SELECT COUNT(*)
+FROM Empleados e2
+WHERE e2.Salario_Actual > e1.Salario_Actual
+)
+ORDER BY e1.Salario_Actual DESC;
