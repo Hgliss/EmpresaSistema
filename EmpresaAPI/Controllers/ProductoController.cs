@@ -15,7 +15,7 @@ namespace EmpresaAPI.Controllers
             _service = service;
         }
 
-        //GET: api/productos
+        //GET: api/producto
         [HttpGet]
         public async Task<ActionResult> GetAll()
         {
@@ -23,7 +23,19 @@ namespace EmpresaAPI.Controllers
             return Ok(producto);
         }
 
-        //POST: api/productos
+        //GET: api/producto/{id}
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var producto = await _service.GetByIdAsync(id);
+            if (producto == null)
+                return NotFound(new { message = "Producto no encontrado" });
+
+            return Ok(producto);
+        }
+
+
+        //POST: api/producto
         [HttpPost]
         public async Task<IActionResult> Create(ProductoInputDto dto)
         {
@@ -31,6 +43,21 @@ namespace EmpresaAPI.Controllers
             return Ok(new { message = "Producto creado correctamente" });
         }
 
+        //Put: api/producto/{id}
+        [HttpPut("{id}")]
+        public async Task<IActionResult> Update(int id, [FromBody] ProductoInputDto dto)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var actualizado = await _service.UpdateAsync(id, dto);
+            if (!actualizado)
+                return NotFound(new { message = "Producto no encontrado" });
+
+            return Ok(new { message = "Producto actualizado correctamente" });
+        }
+
+        //DELETE: api/producto/{id}
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
